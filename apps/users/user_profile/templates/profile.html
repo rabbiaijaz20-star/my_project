@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Profile</title>
+</head>
+<body>
+    <h1>{{ request.user.username }}'s Profile</h1>
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+
+    {% if request.user.userprofile.profile_picture %}
+        <img src="{{ request.user.userprofile.profile_picture.url }}" alt="Profile Picture" width="150">
+    {% endif %}
+</body>
+</html>
