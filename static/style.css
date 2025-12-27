@@ -1,0 +1,445 @@
+/* ================= GOOGLE FONTS ================= */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap');
+
+/* ================= THEME VARIABLES ================= */
+:root {
+  --accent: #ff2d55;
+  --accent2: #7c7cff;
+  --bg-main: #050508;
+  --bg-glass: rgba(12,12,30,0.6);
+  --text-main: #ffffff;
+  --text-muted: #9ca3af;
+  --border-soft: rgba(255,255,255,0.08);
+}
+
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ================= BODY ================= */
+body {
+  font-family: 'Inter', sans-serif;
+  background: radial-gradient(circle at top, #20204a, var(--bg-main));
+  color: var(--text-main);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ================= ANIMATED BACKGROUND ================= */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 25% 20%, rgba(255,45,85,0.18), transparent 40%),
+    radial-gradient(circle at 75% 25%, rgba(124,124,255,0.18), transparent 40%),
+    radial-gradient(circle at 50% 80%, rgba(0,255,180,0.12), transparent 45%);
+  animation: floatBg 14s ease-in-out infinite alternate;
+  z-index: -1;
+}
+
+@keyframes floatBg {
+  to { transform: translateY(-50px); }
+}
+
+/* ================= HEADER ================= */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(18px);
+  background: var(--bg-glass);
+  border-bottom: 1px solid var(--border-soft);
+  padding: 18px 44px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ================= LOGO ================= */
+.logo a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+/* LOGO ICON */
+.logo-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Manrope', sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  box-shadow:
+    0 0 18px rgba(255,45,85,0.6),
+    inset 0 0 10px rgba(255,255,255,0.25);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* LOGO TEXT */
+.logo-text {
+  font-family: 'Manrope', sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: var(--accent);
+  text-shadow: 0 0 22px rgba(255,45,85,0.7);
+}
+
+.logo a:hover .logo-icon {
+  transform: scale(1.08);
+  box-shadow:
+    0 0 28px rgba(255,45,85,0.85),
+    inset 0 0 12px rgba(255,255,255,0.3);
+}
+
+/* ================= NAV ================= */
+nav a {
+  margin-left: 22px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  color: #e5e7eb;
+  position: relative;
+  transition: color 0.25s ease;
+}
+
+nav a:hover {
+  color: #ffffff;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* ================= BUTTON ================= */
+.btn-upload {
+  padding: 9px 18px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--accent), #ff7a18);
+  color: white !important;
+  box-shadow: 0 10px 40px rgba(255,45,85,0.45);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-upload:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 50px rgba(255,45,85,0.6);
+}
+
+/* ================= MAIN ================= */
+main {
+  padding: 44px 64px;
+  min-height: 80vh;
+  animation: fadeIn 0.8s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ================= MESSAGES ================= */
+.messages {
+  margin-bottom: 26px;
+}
+
+.messages .success {
+  background: rgba(16,185,129,0.18);
+  border-left: 4px solid #10b981;
+  padding: 14px 18px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+}
+
+.messages .error {
+  background: rgba(239,68,68,0.18);
+  border-left: 4px solid #ef4444;
+  padding: 14px 18px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+}
+
+/* ================= VIDEO ================= */
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  border-radius: 20px;
+  overflow: hidden;
+  background: black;
+  box-shadow: 0 40px 100px rgba(0,0,0,0.85);
+  margin-bottom: 36px;
+}
+
+.video-container iframe,
+.video-container video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* ================= FOOTER ================= */
+footer {
+  text-align: center;
+  padding: 22px;
+  background: var(--bg-glass);
+  border-top: 1px solid var(--border-soft);
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  header {
+    padding: 14px 20px;
+  }
+
+  main {
+    padding: 24px;
+  }
+
+  nav a {
+    margin-left: 12px;
+    font-size: 13px;
+  }
+
+  .logo-text {
+    font-size: 22px;
+  }
+
+  .logo-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 20px;
+  }
+}
+
+/* ===== RESET ===== */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+/* ===== BODY ===== */
+body{
+  font-family:'Inter',sans-serif;
+  color:#f9fafb;
+  background:radial-gradient(circle at top,#1b1b35,#050505);
+  min-height:100vh;
+  overflow-x:hidden;
+  line-height:1.6;
+}
+
+/* ===== CINEMATIC GLOW BACKGROUND ===== */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:
+    radial-gradient(circle at 20% 18%,rgba(255,45,85,.22),transparent 42%),
+    radial-gradient(circle at 80% 25%,rgba(124,124,255,.22),transparent 42%),
+    radial-gradient(circle at 50% 85%,rgba(0,255,180,.15),transparent 45%);
+  animation:floatBg 14s ease-in-out infinite alternate;
+  z-index:-1;
+}
+
+@keyframes floatBg{
+  to{transform:translateY(-50px)}
+}
+
+/* ===== HEADER ===== */
+header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(10,10,25,.75);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(255,255,255,.08);
+  padding:18px 44px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+/* ===== LOGO ===== */
+.logo a{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  text-decoration:none;
+}
+
+/* LOGO ICON */
+.logo-icon{
+  width:44px;
+  height:44px;
+  border-radius:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:'Syne',sans-serif;
+  font-size:26px;
+  font-weight:800;
+  color:#fff;
+  background:linear-gradient(135deg,#ff2d55,#7c7cff);
+  box-shadow:
+    0 0 18px rgba(255,45,85,.8),
+    0 0 40px rgba(124,124,255,.6);
+  animation:pulse 2.6s ease-in-out infinite;
+}
+
+/* LOGO TEXT */
+.logo-text{
+  font-family:'Syne',sans-serif;
+  font-size:28px;
+  font-weight:800;
+  letter-spacing:.6px;
+  color:#ff2d55;
+  text-shadow:
+    0 0 12px rgba(255,45,85,.9),
+    0 0 32px rgba(255,45,85,.7);
+}
+
+/* LOGO PULSE */
+@keyframes pulse{
+  0%{transform:scale(1)}
+  50%{transform:scale(1.07)}
+  100%{transform:scale(1)}
+}
+
+/* ===== NAV ===== */
+nav a{
+  margin-left:20px;
+  text-decoration:none;
+  font-size:14px;
+  font-weight:600;
+  color:#d1d5db;
+  position:relative;
+}
+
+nav a:hover{
+  color:#fff;
+}
+
+nav a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-6px;
+  width:0;
+  height:2px;
+  background:linear-gradient(90deg,#ff2d55,#7c7cff);
+  transition:.3s;
+}
+
+nav a:hover::after{
+  width:100%;
+}
+
+/* ===== BUTTON ===== */
+.btn-upload{
+  padding:9px 18px;
+  border-radius:999px;
+  background:linear-gradient(135deg,#ff2d55,#ff7a18);
+  color:#fff!important;
+  box-shadow:0 10px 35px rgba(255,45,85,.55);
+  transition:.2s;
+}
+
+.btn-upload:hover{
+  transform:translateY(-2px);
+  box-shadow:0 16px 55px rgba(255,45,85,.8);
+}
+
+/* ===== MAIN ===== */
+main{
+  padding:42px 64px;
+  min-height:80vh;
+  animation:fadeIn .9s ease;
+}
+
+@keyframes fadeIn{
+  from{opacity:0;transform:translateY(18px)}
+  to{opacity:1}
+}
+
+/* ===== MESSAGES ===== */
+.messages{margin-bottom:22px}
+
+.messages .success{
+  background:rgba(16,185,129,.2);
+  border-left:4px solid #10b981;
+  padding:12px 16px;
+  border-radius:8px;
+  margin-bottom:10px;
+}
+
+.messages .error{
+  background:rgba(239,68,68,.2);
+  border-left:4px solid #ef4444;
+  padding:12px 16px;
+  border-radius:8px;
+  margin-bottom:10px;
+}
+
+/* ===== VIDEO ===== */
+.video-container{
+  position:relative;
+  padding-bottom:56.25%;
+  height:0;
+  border-radius:20px;
+  overflow:hidden;
+  background:black;
+  box-shadow:0 35px 100px rgba(0,0,0,.9);
+  margin-bottom:36px;
+}
+
+.video-container iframe,
+.video-container video{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+}
+
+/* ===== FOOTER ===== */
+footer{
+  text-align:center;
+  padding:22px;
+  background:rgba(10,10,25,.7);
+  border-top:1px solid rgba(255,255,255,.08);
+  color:#9ca3af;
+  font-size:14px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+  header{padding:14px 20px}
+  main{padding:24px}
+  .logo-text{font-size:22px}
+  .logo-icon{width:36px;height:36px;font-size:20px}
+}
